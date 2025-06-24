@@ -11,7 +11,7 @@ export const HeroSection = () => {
           {/* 🌟 Profile Picture - Bigger & Nicer */}
           <div className="flex justify-center">
             <img
-              src="/projects/karthik.jpg"
+              src="/karthik.jpg"
               alt="Karthik M Sarma"
               className="w-48 h-48 rounded-full border-4 border-primary shadow-xl object-cover opacity-0 animate-fade-in"
             />
