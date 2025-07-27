@@ -4,42 +4,42 @@ import { ThreeDSkillSpheres } from "./3DSkillSpheres";
 
 const skills = [
   // Programming Languages
-  { name: "Python", level: 95, category: "programming" },
-  { name: "Java", level: 85, category: "programming" },
-  { name: "C", level: 80, category: "programming" },
-  { name: "SQL", level: 90, category: "programming" },
-  { name: "R", level: 75, category: "programming" },
-  { name: "HTML/CSS", level: 90, category: "programming" },
+  { name: "Python", category: "programming" },
+  { name: "Java", category: "programming" },
+  { name: "C", category: "programming" },
+  { name: "SQL", category: "programming" },
+  { name: "R", category: "programming" },
+  { name: "HTML/CSS", category: "programming" },
 
   // Frameworks & Libraries
-  { name: "FastAPI", level: 90, category: "frameworks" },
-  { name: "Flask", level: 90, category: "frameworks" },
-  { name: "Streamlit", level: 85, category: "frameworks" },
-  { name: "LangChain", level: 95, category: "frameworks" },
-  { name: "HuggingFace Transformers", level: 90, category: "frameworks" },
-  { name: "Pandas / NumPy", level: 95, category: "frameworks" },
-  { name: "Seaborn", level: 85, category: "frameworks" },
-  { name: "Scikit-learn", level: 85, category: "frameworks" },
-  { name: "BeautifulSoup", level: 80, category: "frameworks" },
+  { name: "FastAPI", category: "frameworks" },
+  { name: "Flask", category: "frameworks" },
+  { name: "Streamlit", category: "frameworks" },
+  { name: "LangChain", category: "frameworks" },
+  { name: "HuggingFace Transformers", category: "frameworks" },
+  { name: "Pandas / NumPy", category: "frameworks" },
+  { name: "Seaborn", category: "frameworks" },
+  { name: "Scikit-learn", category: "frameworks" },
+  { name: "BeautifulSoup", category: "frameworks" },
 
   // AI & LLM Tools
-  { name: "OpenAI APIs", level: 90, category: "ai" },
-  { name: "Google Gemini", level: 85, category: "ai" },
-  { name: "Groq", level: 85, category: "ai" },
-  { name: "RAG Pipelines", level: 90, category: "ai" },
-  { name: "Pinecone", level: 90, category: "ai" },
+  { name: "OpenAI APIs", category: "ai" },
+  { name: "Google Gemini", category: "ai" },
+  { name: "Groq", category: "ai" },
+  { name: "RAG Pipelines", category: "ai" },
+  { name: "Pinecone", category: "ai" },
 
   // Tools & Platforms
-  { name: "Git/GitHub", level: 95, category: "tools" },
-  { name: "Docker", level: 85, category: "tools" },
-  { name: "Kubernetes", level: 75, category: "tools" },
-  { name: "VS Code", level: 95, category: "tools" },
-  { name: "Postman", level: 85, category: "tools" },
-  { name: "Jupyter", level: 90, category: "tools" },
-  { name: "Linux CLI", level: 85, category: "tools" },
-  { name: "Vercel", level: 80, category: "tools" },
-  { name: "Heroku", level: 80, category: "tools" },
-  { name: "n8n", level: 75, category: "tools" },
+  { name: "Git/GitHub", category: "tools" },
+  { name: "Docker", category: "tools" },
+  { name: "Kubernetes", category: "tools" },
+  { name: "VS Code", category: "tools" },
+  { name: "Postman", category: "tools" },
+  { name: "Jupyter", category: "tools" },
+  { name: "Linux CLI", category: "tools" },
+  { name: "Vercel", category: "tools" },
+  { name: "Heroku", category: "tools" },
+  { name: "n8n", category: "tools" },
 ];
 
 const categories = ["all", "programming", "frameworks", "ai", "tools"];
@@ -82,25 +82,33 @@ export const SkillsSection = () => {
         </div>
 
         {/* Skill Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
           {filteredSkills.map((skill, index) => (
             <div
               key={index}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover"
+              className="group relative bg-gradient-to-br from-card to-card/80 p-4 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-110 hover:-translate-y-2 border border-primary/20 hover:border-primary/40 overflow-hidden animate-[float-skill_3s_ease-in-out_infinite] hover:animate-[pulse-glow_2s_ease-in-out_infinite]"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg">{skill.name}</h3>
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+              
+              {/* Skill name */}
+              <div className="relative z-10 text-center">
+                <h3 className="font-semibold text-sm sm:text-base text-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-110">
+                  {skill.name}
+                </h3>
               </div>
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                <div
-                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
-                  style={{ width: skill.level + "%" }}
-                />
-              </div>
-              <div className="text-right mt-1">
-                <span className="text-sm text-muted-foreground">
-                  {skill.level}%
-                </span>
+              
+              {/* Hover animation overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 rounded-2xl" />
+              
+              {/* Corner accent */}
+              <div className="absolute top-0 right-0 w-0 h-0 border-l-[20px] border-l-transparent border-t-[20px] border-t-primary/20 group-hover:border-t-primary/40 transition-colors duration-300 rounded-bl-2xl" />
+              
+              {/* Floating particles */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-2 left-2 w-1 h-1 bg-primary/60 rounded-full animate-pulse" style={{ animationDelay: `${index * 0.2}s` }} />
+                <div className="absolute bottom-2 right-2 w-1 h-1 bg-primary/40 rounded-full animate-pulse" style={{ animationDelay: `${index * 0.4}s` }} />
               </div>
             </div>
           ))}
