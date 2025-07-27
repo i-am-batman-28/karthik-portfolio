@@ -8,7 +8,6 @@ const timelineData = [
     title: "Started BTech AI & Data Science",
     subtitle: "IIIT Sri City",
     description: "Began my journey in Artificial Intelligence and Data Science",
-    icon: "🎓",
     type: "education"
   },
   {
@@ -17,7 +16,6 @@ const timelineData = [
     title: "Core Member",
     subtitle: "TEDxIIITSriCity, GDG, Matrix",
     description: "Active involvement in tech communities and event management",
-    icon: "🌟",
     type: "community"
   },
   {
@@ -26,7 +24,6 @@ const timelineData = [
     title: "AI Intern",
     subtitle: "Excelerate",
     description: "Global job dataset analysis and employer trust scoring",
-    icon: "🤖",
     type: "work"
   },
   {
@@ -35,7 +32,6 @@ const timelineData = [
     title: "Software Engineer",
     subtitle: "Ontune AI",
     description: "Scalable AI agents and multilingual RAG systems",
-    icon: "⚡",
     type: "work"
   },
   {
@@ -44,7 +40,6 @@ const timelineData = [
     title: "Software Developer Engineer",
     subtitle: "NLightN",
     description: "LLM-powered APIs and data extraction flows",
-    icon: "🔧",
     type: "work"
   },
   {
@@ -53,7 +48,6 @@ const timelineData = [
     title: "Data Analyst",
     subtitle: "OmniSageAI",
     description: "E-commerce analytics and fraud detection systems",
-    icon: "📊",
     type: "work"
   },
   {
@@ -62,7 +56,6 @@ const timelineData = [
     title: "Expected Graduation",
     subtitle: "IIIT Sri City",
     description: "Completing BTech in AI & Data Science",
-    icon: "🎯",
     type: "education"
   }
 ];
@@ -141,8 +134,7 @@ export const InteractiveTimeline = () => {
                 {/* Content */}
                 <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
                   <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-2xl">{item.icon}</span>
+                    <div className="mb-2">
                       <span className="text-sm font-medium text-primary">{item.year}</span>
                     </div>
                     <h3 className="text-xl font-semibold mb-1">{item.title}</h3>

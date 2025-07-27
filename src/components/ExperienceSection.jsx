@@ -74,18 +74,15 @@ export const ExperienceSection = () => {
                   <h3 className="text-xl font-semibold text-primary">
                     {experience.title}
                   </h3>
-                  <div className="flex items-center gap-2 text-muted-foreground mt-1">
-                    <Building className="h-4 w-4" />
+                  <div className="text-muted-foreground mt-1">
                     <span>{experience.company}</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 mt-2 md:mt-0">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Calendar className="h-4 w-4" />
+                  <div className="text-sm text-muted-foreground">
                     <span>{experience.duration}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <MapPin className="h-4 w-4" />
+                  <div className="text-sm text-muted-foreground">
                     <span>{experience.location}</span>
                   </div>
                 </div>
