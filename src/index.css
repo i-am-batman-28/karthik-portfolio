@@ -60,6 +60,33 @@
       opacity: 0;
     }
   }
+
+  @keyframes holographic-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes rainbow-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes grow {
+    from {
+      width: 0%;
+    }
+    to {
+      width: var(--skill-level);
+    }
+  }
 }
 
 @layer base {
@@ -98,6 +125,12 @@
   body {
     @apply bg-background text-foreground transition-colors duration-300;
     font-feature-settings: "rlig" 1, "calt" 1;
+    cursor: none;
+  }
+
+  /* Show default cursor on interactive elements when custom cursor is not available */
+  a, button, input, textarea, select {
+    cursor: none;
   }
 }
 
@@ -152,6 +185,14 @@
 @utility meteor {
   @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+}
+
+@utility perspective-1000 {
+  perspective: 1000px;
+}
+
+@utility preserve-3d {
+  transform-style: preserve-3d;
 }
 
 #root {

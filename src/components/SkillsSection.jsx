@@ -1,32 +1,48 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { ThreeDSkillSpheres } from "./3DSkillSpheres";
 
 const skills = [
   // Programming Languages
   { name: "Python", level: 95, category: "programming" },
+  { name: "Java", level: 85, category: "programming" },
+  { name: "C", level: 80, category: "programming" },
   { name: "SQL", level: 90, category: "programming" },
+  { name: "R", level: 75, category: "programming" },
   { name: "HTML/CSS", level: 90, category: "programming" },
-  { name: "JavaScript", level: 85, category: "programming" },
-  { name: "R", level: 70, category: "programming" },
 
   // Frameworks & Libraries
+  { name: "FastAPI", level: 90, category: "frameworks" },
   { name: "Flask", level: 90, category: "frameworks" },
-  { name: "FastAPI", level: 85, category: "frameworks" },
-  { name: "LangChain", level: 90, category: "frameworks" },
-  { name: "HuggingFace Transformers", level: 85, category: "frameworks" },
-  { name: "Pandas / Numpy", level: 90, category: "frameworks" },
-  { name: "Matplotlib / Seaborn", level: 85, category: "frameworks" },
-  { name: "Scikit-Learn", level: 80, category: "frameworks" },
+  { name: "Streamlit", level: 85, category: "frameworks" },
+  { name: "LangChain", level: 95, category: "frameworks" },
+  { name: "HuggingFace Transformers", level: 90, category: "frameworks" },
+  { name: "Pandas / NumPy", level: 95, category: "frameworks" },
+  { name: "Seaborn", level: 85, category: "frameworks" },
+  { name: "Scikit-learn", level: 85, category: "frameworks" },
+  { name: "BeautifulSoup", level: 80, category: "frameworks" },
 
-  // Tools
+  // AI & LLM Tools
+  { name: "OpenAI APIs", level: 90, category: "ai" },
+  { name: "Google Gemini", level: 85, category: "ai" },
+  { name: "Groq", level: 85, category: "ai" },
+  { name: "RAG Pipelines", level: 90, category: "ai" },
+  { name: "Pinecone", level: 90, category: "ai" },
+
+  // Tools & Platforms
   { name: "Git/GitHub", level: 95, category: "tools" },
-  { name: "Docker", level: 80, category: "tools" },
+  { name: "Docker", level: 85, category: "tools" },
+  { name: "Kubernetes", level: 75, category: "tools" },
   { name: "VS Code", level: 95, category: "tools" },
-  { name: "Power BI / Tableau", level: 80, category: "tools" },
-  { name: "Beautiful Soup", level: 75, category: "tools" },
+  { name: "Postman", level: 85, category: "tools" },
+  { name: "Jupyter", level: 90, category: "tools" },
+  { name: "Linux CLI", level: 85, category: "tools" },
+  { name: "Vercel", level: 80, category: "tools" },
+  { name: "Heroku", level: 80, category: "tools" },
+  { name: "n8n", level: 75, category: "tools" },
 ];
 
-const categories = ["all", "programming", "frameworks", "tools"];
+const categories = ["all", "programming", "frameworks", "ai", "tools"];
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -58,6 +74,11 @@ export const SkillsSection = () => {
               {category}
             </button>
           ))}
+        </div>
+
+        {/* 3D Skill Spheres */}
+        <div className="mb-12">
+          <ThreeDSkillSpheres />
         </div>
 
         {/* Skill Cards */}

@@ -1,4 +1,7 @@
 import { ArrowDown } from "lucide-react";
+import { MagneticTypingProfile } from "./MagneticTypingProfile";
+import { TypingText } from "./TypingText";
+import { MagneticButton } from "./MagneticButton";
 
 export const HeroSection = () => {
   return (
@@ -8,24 +11,20 @@ export const HeroSection = () => {
     >
       <div className="container max-w-4xl mx-auto text-center z-10">
         <div className="space-y-8">
-          {/* 🌟 Profile Picture - Bigger & Nicer */}
-          <div className="flex justify-center">
-            <img
-              src="/karthik.jpg"
-              alt="Karthik M Sarma"
-              className="w-48 h-48 rounded-full border-4 border-primary shadow-xl object-cover opacity-0 animate-fade-in"
-            />
+          {/* ✨ Magnetic Typing Profile */}
+          <div className="opacity-0 animate-fade-in">
+            <MagneticTypingProfile />
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
             <span className="opacity-0 animate-fade-in-delay-1">Hi, I'm</span>
             <span className="text-primary opacity-0 animate-fade-in-delay-2">
               {" "}
-              Karthik
+              <TypingText text="Karthik" speed={150} />
             </span>
             <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-3">
               {" "}
-              M Sarma
+              <TypingText text="M Sarma" speed={100} />
             </span>
           </h1>
 
@@ -36,9 +35,13 @@ export const HeroSection = () => {
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-5">
-            <a href="#projects" className="cosmic-button">
+            <MagneticButton 
+              as="a" 
+              href="#projects" 
+              className="cosmic-button"
+            >
               View My Work
-            </a>
+            </MagneticButton>
           </div>
         </div>
       </div>
